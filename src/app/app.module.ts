@@ -8,6 +8,7 @@ import { AbsencesComponent } from './pages/absences/absences.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DenonciatorComponent } from './components/denonciator/denonciator.component';
+import { GestionAbsencesComponent } from './components/gestion-absences/gestion-absences.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DenonciatorComponent } from './components/denonciator/denonciator.compo
     AbsencesComponent,
     HeaderComponent,
     FooterComponent,
-    DenonciatorComponent
+    DenonciatorComponent,
+    GestionAbsencesComponent
   ],
   imports: [
     BrowserModule,
