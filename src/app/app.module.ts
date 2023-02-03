@@ -7,6 +7,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { AbsencesComponent } from './pages/absences/absences.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DenonciatorComponent } from './components/denonciator/denonciator.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomepageComponent,
     AbsencesComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DenonciatorComponent
   ],
   imports: [
     BrowserModule,

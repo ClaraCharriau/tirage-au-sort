@@ -1,0 +1,3 @@
+<button class="denonciatorBtn" (click)="getRandomPerson()">Donner un nom au hasard</button>
+
+<p *ngIf="this.randomPerson !== null"> {{ this.randomPerson.lastName }} est désigné<span [class.visibility]='this.randomPerson.genre === "Homme"' >e</span> pour corriger l'exercice ! ✨</p>
