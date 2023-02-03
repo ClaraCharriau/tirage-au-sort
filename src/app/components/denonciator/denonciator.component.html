@@ -2,4 +2,8 @@
 
 <p>Personne n’a été sélectionné actuellement 👀</p>
 
-<p *ngIf="this.randomPerson !== null"> {{ this.randomPerson.lastName }} est désigné<span [class.visibility]='this.randomPerson.genre === "Homme"' >e</span> pour corriger l'exercice ! ✨</p>
+<p *ngIf="this.randomPerson !== null"><strong>{{ this.randomPerson?.lastName }}</strong> ✨</p>
+
+<p [class.visibility]='this.randomPerson?.genre === "Homme"'>Tu es la grande gagnante</p>
+
+<p [class.visibility]='this.randomPerson?.genre === "Femme"'>Tu es le grand gagnant</p>
