@@ -1,9 +1,12 @@
-<button class="denonciatorBtn" (click)="getRandomPerson()">Sélectionner au personne</button>
+<button class="denonciatorBtn" (click)="initGame()">Sélectionner une personne</button>
 
-<p>Personne n’a été sélectionné actuellement 👀</p>
+<div [class.visibility]='this.endGame'>
+<p [class.visibility]='this.gameRunning'>Personne n’a été sélectionné actuellement 👀</p>
 
-<p *ngIf="this.randomPerson !== null"><strong>{{ this.randomPerson?.lastName }}</strong> ✨</p>
 
-<p [class.visibility]='this.randomPerson?.genre === "Homme"'>Tu es la grande gagnante</p>
+<p [class.visibility]='!this.gameRunning'><strong>{{ this.randomPerson?.lastName }}</strong> ✨<br>
+<span [class.visibility]='this.randomPerson?.genre === "Homme"'>Tu es la grande gagnante</span>
+<span [class.visibility]='this.randomPerson?.genre === "Femme"'>Tu es le grand gagnant</span></p>
+</div>
 
-<p [class.visibility]='this.randomPerson?.genre === "Femme"'>Tu es le grand gagnant</p>
+<p [class.visibility]='!this.endGame'>Tout le monde est passé, rafraichir la page pour recommencer...</p>
