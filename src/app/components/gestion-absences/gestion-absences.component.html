@@ -1,1 +1,13 @@
-<p>gestion-absences works!</p>
+<form>
+<label for="classmates">Ajouter un.e absent.e</label>
+
+<select name="classmates" id="classmates">
+    <option >
+        Sélectionner une personne
+    </option>
+    <option *ngFor="let people of classmates">
+        {{people.lastName}}
+    </option>
+</select>
+<button type="submit">Ajouter</button>
+</form>

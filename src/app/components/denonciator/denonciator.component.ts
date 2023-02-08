@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CLASSMATES, Person } from 'src/app/mocks/classmate.mocks';
+import { Person } from 'src/app/mocks/classmate.mocks';
+import { ClassmateListService } from 'src/app/services/classmateList/classmate-list.service';
 
 @Component({
   selector: 'app-denonciator',
@@ -8,16 +9,14 @@ import { CLASSMATES, Person } from 'src/app/mocks/classmate.mocks';
 })
 export class DenonciatorComponent {
 
-  // Mock
-  classmates: Person[] = CLASSMATES;
-
   gameRunning: boolean = false;
-  endGame: Boolean = false;
-  availableClassmates?: Person[] = new Array();
+  endGame: boolean = false;
+  availableClassmates?: Person[];
   randomPerson?: Person;
 
-  initGame() {
+  constructor(public classmateListService: ClassmateListService) { }
 
+  initGame() {
     if (this.gameRunning === false) {
       this.isGameRunning();
       this.getAvailableClassmates();
@@ -32,29 +31,28 @@ export class DenonciatorComponent {
       this.getRandomPerson();
       console.log("true", this.availableClassmates);
     }
-    
+
   }
 
-
+  // Le jeu est-il en cours ?
   isGameRunning() {
     this.gameRunning = true;
   }
 
+  // Récupérer la liste de présence
   getAvailableClassmates() {
-    for (let i = 0 ; i < CLASSMATES.length ; i++ ) {
-      this.availableClassmates?.push(CLASSMATES[i]);
-    }
+    this.availableClassmates = this.classmateListService.getAllClassmates();
   }
 
+  // Mélange la liste
   shuffleClassmates() {
-    this.availableClassmates?.sort(()=> Math.random() - 0.5);
+    this.availableClassmates?.sort(() => Math.random() - 0.5);
   }
 
+  // Obtenir une personne au hasard
   getRandomPerson() {
     this.randomPerson = this.availableClassmates?.pop();
     return this.randomPerson
   }
-
-
 
 }
