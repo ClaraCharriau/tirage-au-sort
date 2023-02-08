@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CLASSMATES, Person } from 'src/app/mocks/classmate.mocks';
+import { Person } from 'src/app/mocks/classmate.mocks';
 import { ClassmateListService } from 'src/app/services/classmateList/classmate-list.service';
 
 @Component({
@@ -11,10 +11,14 @@ export class GestionAbsencesComponent {
 
   constructor(public classmateListService: ClassmateListService) {}
 
-  classmates?: Person[];
+  classmates: Person[] = [];
 
   ngOnInit() {
-    this.classmates = this.classmateListService.getAllClassmates();
+    this.getClassmatesList();
+  }
+
+  getClassmatesList() {
+    this.classmates = this.classmateListService.getClassmateList();
   }
 
 }

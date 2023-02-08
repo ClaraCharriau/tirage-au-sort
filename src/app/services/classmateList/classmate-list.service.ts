@@ -8,15 +8,20 @@ export class ClassmateListService {
 
   constructor() { }
 
-  // Enregistrement de la liste dans localStorage
-  private createClassmateList() {
-    const newClassmateList = JSON.stringify([this.getAllClassmates()]);
-    localStorage.setItem('classmate', newClassmateList);
+  // Retourne toute la liste de la classe
+  getAllClassmates(): Person[] {
+    return CLASSMATES;
   }
 
-  public getClassmateList() {
+  // Enregistrement de la liste dans localStorage
+  private createClassmateList() {
+    const newClassmateList = JSON.stringify(CLASSMATES);
+    localStorage.setItem('classmates', newClassmateList);
+  }
+
+  getClassmateList() {
     const classmates = localStorage.getItem('classmates');
-    if(classmates) {
+    if (classmates) {
       return JSON.parse(classmates);
     } else {
       this.createClassmateList();
@@ -24,10 +29,6 @@ export class ClassmateListService {
     }
   }
 
-  // Retourne toute la liste de la classe
-  getAllClassmates(): Person[] {
-    return CLASSMATES;
-  }
   // Trouver une personne par son nom
   getClassmateByName(lastName: string): Person | undefined {
     return CLASSMATES.find(person => person.lastName === lastName);
