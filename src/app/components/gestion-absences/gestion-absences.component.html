@@ -1,7 +1,7 @@
-<form>
+<form [formGroup]="absenceForm">
 <label for="classmates">Ajouter un.e absent.e</label>
 
-<select name="classmates" id="classmates">
+<select name="classmates" id="classmates" formControlName="classmates">
     <option >
         Sélectionner une personne
     </option>
@@ -9,5 +9,19 @@
         {{people.lastName}}
     </option>
 </select>
-<button type="submit">Ajouter</button>
+<button type="submit" (click)="onFormSubmit()">Ajouter</button>
 </form>
+
+<h3 *ngIf="this.affichageMen">Liste des absents</h3>
+<ul>
+    <ng-container *ngFor="let people of absenceList">
+    <li *ngIf="people.genre === 'Homme' " >{{people.lastName}} <button (click)="addPersonBack(people.lastName)">supprimer</button></li>
+    </ng-container>
+</ul>
+
+<h3 *ngIf="this.affichageWomen">Liste des absentes</h3>
+<ul>
+    <ng-container *ngFor="let people of absenceList">
+    <li *ngIf="people.genre === 'Femme' " >{{people.lastName}} <button (click)="addPersonBack(people.lastName)">supprimer</button></li>
+    </ng-container>
+</ul>

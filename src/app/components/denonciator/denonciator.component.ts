@@ -41,7 +41,7 @@ export class DenonciatorComponent {
 
   // Récupérer la liste de présence
   getAvailableClassmates() {
-    this.availableClassmates = this.classmateListService.getClassmateList();
+    this.availableClassmates = this.classmateListService.getPresenceList();
   }
 
   // Mélange la liste

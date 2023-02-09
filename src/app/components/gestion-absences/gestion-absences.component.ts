@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Person } from 'src/app/mocks/classmate.mocks';
 import { ClassmateListService } from 'src/app/services/classmateList/classmate-list.service';
 
@@ -9,16 +10,71 @@ import { ClassmateListService } from 'src/app/services/classmateList/classmate-l
 })
 export class GestionAbsencesComponent {
 
-  constructor(public classmateListService: ClassmateListService) {}
-
+  public absenceForm!: FormGroup;
   classmates: Person[] = [];
+  absenceList: Person[] = [];
+  affichageWomen: boolean = false;
+  affichageMen: boolean = false;
+
+  constructor(public classmateListService: ClassmateListService, private formBuilder: FormBuilder) {}
+
 
   ngOnInit() {
-    this.getClassmatesList();
+    this.getPresenceList();
+    this.getAbsenceList();
+    this.initAbsenceForm();
+
+    this.affichageWomen = this.checkForWomen();
+    this.affichageMen = this.checkForMen();
   }
 
-  getClassmatesList() {
-    this.classmates = this.classmateListService.getClassmateList();
+  getPresenceList() {
+    this.classmates = this.classmateListService.getPresenceList();
+  }
+
+  getAbsenceList() {
+    this.absenceList = this.classmateListService.getAbsenceList();
+  }
+
+  initAbsenceForm() {
+    this.absenceForm = this.formBuilder.group({
+      classmates: [null]
+    })
+  }
+
+  onFormSubmit() {
+    // Mettre la personne dans la liste des absents
+    this.classmateListService.addPersonToAbsence(this.absenceForm.value.classmates)
+
+    // rafraichir le composant, pour mettre à jour le sélecteur
+    this.ngOnInit();
+  }
+
+  addPersonBack(lastName: string) {
+    this.classmateListService.addPersonToPresence(lastName);
+    this.ngOnInit();
+  }
+
+  // Pour l'affichage des absentes
+  checkForWomen() {
+    let absenceList: Person[] = this.classmateListService.getAbsenceList();
+
+    if(absenceList.length > 0 && absenceList.map(item => item.genre).includes("Femme")) {
+      return true
+    } else {
+      return false
+    }
+  
+  }
+  checkForMen() {
+    let absenceList: Person[] = this.classmateListService.getAbsenceList();
+
+    if(absenceList.length > 0 && absenceList.map(item => item.genre).includes("Homme")) {
+      return true
+    } else {
+      return false
+    }
+  
   }
 
 }
