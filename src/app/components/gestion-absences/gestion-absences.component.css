@@ -1,0 +1,66 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    width: 100%;
+}
+
+.bold-title,
+h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+select {
+    padding: 20px;
+    background-color: white;
+    border: white;
+    border-radius: 10px;
+    margin: 0;
+    width: fit-content;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    z-index: 1;
+}
+
+.add-btn {
+    font-size: 16px;
+    padding: 15px 40px;
+}
+
+.separator {
+    transform: rotate(90deg);
+    width: 50vh;
+    border: 1px solid #D9D9D9;
+}
+
+.little-cross {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+
+}
+
+.cross-svg {
+    fill: black;
+    width: 14px;
+    height: 14px;
+}
+
+.right-box-absents {
+    width: 100%;
+}
