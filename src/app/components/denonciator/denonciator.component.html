@@ -1,5 +1,7 @@
+<main>
 <button class="denonciatorBtn" (click)="initGame()">Sélectionner une personne</button>
 
+<section>
 <div [class.visibility]='this.endGame'>
 <p [class.visibility]='this.gameRunning'>Personne n’a été sélectionné actuellement 👀</p>
 
@@ -10,3 +12,5 @@
 </div>
 
 <p [class.visibility]='!this.endGame'>Tout le monde est passé, rafraichir la page pour recommencer...</p>
+</section>
+</main>

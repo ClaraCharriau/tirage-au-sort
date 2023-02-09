@@ -1,3 +1,22 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
+    padding: 100px;
+}
+
+section {
+    background-color: white;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 0;
+}
+
 .visibility {
     display: none;
 }
