@@ -20,3 +20,7 @@ section {
 .visibility {
     display: none;
 }
+
+.reload-btn {
+    margin-top: 20px;
+}

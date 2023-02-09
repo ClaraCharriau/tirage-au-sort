@@ -1,5 +1,5 @@
 <main>
-<button class="denonciatorBtn" (click)="initGame()">Sélectionner une personne</button>
+<button [class.visibility]='this.endGame' class="denonciatorBtn" (click)="initGame()">Sélectionner une personne</button>
 
 <section>
 <div [class.visibility]='this.endGame'>
@@ -11,6 +11,6 @@
 <span [class.visibility]='this.randomPerson?.genre === "Femme"'>Tu es le grand gagnant</span></p>
 </div>
 
-<p [class.visibility]='!this.endGame'>Tout le monde est passé, rafraichir la page pour recommencer...</p>
+<p [class.visibility]='!this.endGame'>Tout le monde est passé 🌷 <br><button class="reload-btn" (click)="reloadPage()">Remettre à zéro</button></p>
 </section>
 </main>

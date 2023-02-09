@@ -55,4 +55,9 @@ export class DenonciatorComponent {
     return this.randomPerson
   }
 
+  // Remettre à zéro
+  reloadPage() {
+    location.reload();
+ }
+
 }
