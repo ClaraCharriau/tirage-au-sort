@@ -25,7 +25,6 @@ select {
     border: white;
     border-radius: 10px;
     margin: 0;
-    width: fit-content;
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
@@ -36,6 +35,7 @@ select {
 .add-btn {
     font-size: 16px;
     padding: 15px 40px;
+    width: 140px;
 }
 
 .separator {
