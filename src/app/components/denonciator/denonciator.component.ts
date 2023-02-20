@@ -16,20 +16,20 @@ export class DenonciatorComponent {
 
   constructor(public classmateListService: ClassmateListService) { }
 
+  ngOnInit() {
+    this.getAvailableClassmates();
+  }
+
   initGame() {
     if (this.gameRunning === false) {
       this.isGameRunning();
-      this.getAvailableClassmates();
       this.shuffleClassmates();
       this.getRandomPerson();
-      console.log("false", this.availableClassmates);
-
     } else if (this.availableClassmates?.length === 0) {
       this.endGame = true;
 
     } else {
       this.getRandomPerson();
-      console.log("true", this.availableClassmates);
     }
 
   }

@@ -50,8 +50,8 @@ export class GestionAbsencesComponent {
     this.ngOnInit();
   }
 
-  addPersonBack(lastName: string) {
-    this.classmateListService.addPersonToPresence(lastName);
+  addPersonBack(id: number) {
+    this.classmateListService.addPersonToPresence(id);
     this.ngOnInit();
   }
 

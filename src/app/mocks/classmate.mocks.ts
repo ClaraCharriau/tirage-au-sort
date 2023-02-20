@@ -8,7 +8,7 @@ export const CLASSMATES: Person[] = [
     {
         id: 1,
         lastName: "Anne",
-        genre: "Femme"
+        genre: "Femme",
     },
     {
         id: 2,
@@ -42,7 +42,7 @@ export const CLASSMATES: Person[] = [
     },
     {
         id: 8,
-        lastName: "Jérôme",
+        lastName: "Jérome",
         genre: "Homme"
     },
     {
