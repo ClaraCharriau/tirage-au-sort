@@ -1,4 +1,9 @@
-# TirageAuSort
+# Application de tirage au Sort
+
+Création d'un système de tirage au sort d'une personne au sein de la classe. Le système est inclusif et prend en compte les absent(e)s, il ne rappelle pas une personne une seconde fois avant que tout le monde ait été appelé.
+
+
+## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
