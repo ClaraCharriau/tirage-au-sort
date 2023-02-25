@@ -2,6 +2,7 @@
 <form [formGroup]="absenceForm">
 <label class="bold-title" for="classmates">Ajouter un.e absent.e</label>
 
+<!-- Champ pour sélectionner la personne absente -->
 <select class="select-box" name="classmates" id="classmates" formControlName="classmates">
     <option >
         <strong>Sélectionner une personne</strong>
@@ -15,6 +16,7 @@
 
 <hr class="separator">
 
+<!-- Affichage des absents -->
 <section class="right-box-absents">
 <h3 *ngIf="this.affichageMen">Liste des absents</h3>
 <ul>
