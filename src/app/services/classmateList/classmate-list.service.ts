@@ -45,10 +45,11 @@ export class ClassmateListService {
   }
 
 
-  // Récupérer l'index d'une personne par son lastName
-  getIndexByName(lastName: string) {
+  // Récupérer l'index d'une personne par son id
+  getIndexById(id: number) {
+
     const classmateList: Person[] = this.getPresenceList();
-    const personToFind = classmateList.find(person => person.lastName === lastName)
+    const personToFind = classmateList.find(person => person.id === id)
 
     if (personToFind) {
       return classmateList?.indexOf(personToFind);
@@ -59,55 +60,55 @@ export class ClassmateListService {
   }
 
 
-  // Retirer une personne de la liste de présence par son lastName
-  removePersonFromPresence(lastName: string) {
+  // Retirer une personne de la liste de présence par son id
+  removePersonFromPresence(id: number) {
     const presenceList: Person[] = this.getPresenceList();
-    const index = this.getIndexByName(lastName);
+    const index = this.getIndexById(id);
     presenceList.splice(index, 1);
     this.saveList(presenceList, 'presenceList');
   }
 
-  removePersonFromAbsence(lastName: string) {
+  removePersonFromAbsence(id: number) {
     const absenceList: Person[] = this.getAbsenceList();
-    const index = this.getIndexByName(lastName);
+    const index = this.getIndexById(id);
     absenceList.splice(index, 1);
     this.saveList(absenceList, 'absenceList');
   }
 
   // Trouver une personne par son nom
-  getClassmateByName(lastName: string): Person | undefined {
-    return CLASSMATES.find(person => person.lastName === lastName);
+  getClassmateByName(id: number): Person | undefined {
+    return CLASSMATES.find(person => person.id === id);
   }
 
   // Rajouter une personne à la liste de présence
-  addPersonToPresence(lastName: string) {
+  addPersonToPresence(id: number) {
 
-    let person: Person | undefined = this.getClassmateByName(lastName);
+    let person: Person | undefined = this.getClassmateByName(id);
     const presenceList: Person[] = this.getPresenceList();
 
-    let isPresent: boolean = presenceList.map(item => item.lastName).includes(lastName);
+    let isPresent: boolean = presenceList.map(item => item.id).includes(id);
 
     if(person && !isPresent) {
         presenceList.push(person);
-        this.removePersonFromAbsence(lastName);
+        this.removePersonFromAbsence(id);
         this.saveList(presenceList, 'presenceList');
       } else {
-        console.log("cette personne n'existe pas : " + lastName + " " + person + " " + presenceList);
+        console.log("cette personne n'existe pas : " + id + " " + person + " " + presenceList);
         // TODO : trouver pq parfois l'objet est indéfini
       }
 
   }
 
-  addPersonToAbsence(lastName: string) {
+  addPersonToAbsence(id: number) {
 
-    let person: Person | undefined = this.getClassmateByName(lastName);
+    let person: Person | undefined = this.getClassmateByName(id);
     const absenceList: Person[] = this.getAbsenceList();
 
-    let isAbsent: boolean = absenceList.map(item => item.lastName).includes(lastName);
+    let isAbsent: boolean = absenceList.map(item => item.id).includes(id);
 
     if(person && !isAbsent) {
       absenceList.push(person);
-      this.removePersonFromPresence(lastName);
+      this.removePersonFromPresence(id);
       this.saveList(absenceList, 'absenceList');
     } else {
       console.log("cette personne n'existe pas ");
