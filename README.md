@@ -1,6 +1,6 @@
-# Application de tirage au Sort
+# Application de tirage au Sort 🎰
 
-Création d'un système de tirage au sort d'une personne au sein de la classe. Le système est inclusif et prend en compte les absent(e)s, il ne rappelle pas une personne une seconde fois avant que tout le monde ait été appelé.
+Création d'un système de tirage au sort d'une personne au sein de la classe. Avec la possibilité de noter les absences et de ne pas les inclure dans le jeu. Le système est inclusif et prend en compte les absent(e)s, il ne rappelle pas une personne une seconde fois avant que tout le monde ait été appelé.
 
 
 ## Angular
