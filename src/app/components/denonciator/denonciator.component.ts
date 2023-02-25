@@ -16,20 +16,23 @@ export class DenonciatorComponent {
 
   constructor(public classmateListService: ClassmateListService) { }
 
+  // Récupérer la liste de présence et absence au lancement de l'app
+  ngOnInit() {
+    this.getAvailableClassmates();
+  }
+
+  // Au clic sur le bouton, lancement du jeu
   initGame() {
     if (this.gameRunning === false) {
       this.isGameRunning();
-      this.getAvailableClassmates();
       this.shuffleClassmates();
       this.getRandomPerson();
-      console.log("false", this.availableClassmates);
 
     } else if (this.availableClassmates?.length === 0) {
       this.endGame = true;
 
     } else {
       this.getRandomPerson();
-      console.log("true", this.availableClassmates);
     }
 
   }
