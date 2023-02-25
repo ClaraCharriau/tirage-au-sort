@@ -17,12 +17,12 @@ export class DenonciatorComponent {
   constructor(public classmateListService: ClassmateListService) { }
 
   // Récupérer la liste de présence et absence au lancement de l'app
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAvailableClassmates();
   }
 
   // Au clic sur le bouton, lancement du jeu
-  initGame() {
+  initGame(): void {
     if (this.gameRunning === false) {
       this.isGameRunning();
       this.shuffleClassmates();
@@ -34,33 +34,33 @@ export class DenonciatorComponent {
     } else {
       this.getRandomPerson();
     }
-
   }
 
   // Le jeu est-il en cours ?
-  isGameRunning() {
+  isGameRunning(): boolean {
     this.gameRunning = true;
+    return this.gameRunning
   }
 
   // Récupérer la liste de présence
-  getAvailableClassmates() {
+  getAvailableClassmates(): void {
     this.availableClassmates = this.classmateListService.getPresenceList();
   }
 
   // Mélange la liste
-  shuffleClassmates() {
+  shuffleClassmates(): void {
     this.availableClassmates?.sort(() => Math.random() - 0.5);
   }
 
   // Obtenir une personne au hasard
-  getRandomPerson() {
+  getRandomPerson(): Person | undefined {
     this.randomPerson = this.availableClassmates?.pop();
     return this.randomPerson
   }
 
   // Remettre à zéro
-  reloadPage() {
+  reloadPage(): void {
     location.reload();
- }
+  }
 
 }
