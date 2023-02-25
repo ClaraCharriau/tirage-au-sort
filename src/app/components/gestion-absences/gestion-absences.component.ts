@@ -18,8 +18,7 @@ export class GestionAbsencesComponent {
 
   constructor(public classmateListService: ClassmateListService, private formBuilder: FormBuilder) {}
 
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPresenceList();
     this.getAbsenceList();
     this.initAbsenceForm();
@@ -28,35 +27,35 @@ export class GestionAbsencesComponent {
     this.affichageMen = this.checkForMen();
   }
 
-  getPresenceList() {
+  getPresenceList(): void {
     this.classmates = this.classmateListService.getPresenceList();
   }
 
-  getAbsenceList() {
+  getAbsenceList(): void {
     this.absenceList = this.classmateListService.getAbsenceList();
   }
 
-  initAbsenceForm() {
+  initAbsenceForm(): void {
     this.absenceForm = this.formBuilder.group({
       classmates: [null]
     })
   }
 
-  onFormSubmit() {
+  onFormSubmit(): void {
     // Mettre la personne dans la liste des absents
     this.classmateListService.addPersonToAbsence(this.absenceForm.value.classmates)
 
-    // rafraichir le composant, pour mettre à jour le sélecteur
+    // rafraichir le composant, pour mettre à jour le champ
     this.ngOnInit();
   }
 
-  addPersonBack(id: number) {
+  addPersonBack(id: number): void {
     this.classmateListService.addPersonToPresence(id);
     this.ngOnInit();
   }
 
   // Pour l'affichage des absentes
-  checkForWomen() {
+  checkForWomen(): boolean {
     let absenceList: Person[] = this.classmateListService.getAbsenceList();
 
     if(absenceList.length > 0 && absenceList.map(item => item.genre).includes("Femme")) {
@@ -66,7 +65,8 @@ export class GestionAbsencesComponent {
     }
   
   }
-  checkForMen() {
+   // Pour l'affichage des absents
+  checkForMen(): boolean {
     let absenceList: Person[] = this.classmateListService.getAbsenceList();
 
     if(absenceList.length > 0 && absenceList.map(item => item.genre).includes("Homme")) {
