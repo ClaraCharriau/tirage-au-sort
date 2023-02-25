@@ -2,6 +2,15 @@
 
 Création d'un système de tirage au sort d'un étudiant ou d'une étudiante au sein d'une classe. Avec la possibilité de noter les absences et de ne pas les inclure dans le jeu. Le système est inclusif et prend en compte le genre de la personne sélectionnée, il ne rappelle pas une personne une seconde fois avant que tout le monde ait été appelé.
 
+## Accéder à l'application
+
+Ici : https://tirage-au-sort-denonciator.netlify.app
+
+## Détails
+- Utilisation d'un mock pour la liste d'étudiants et étudiantes
+- Création d'un service pour réunir les méthodes de gestion de la liste de présence et d'absence
+- Au lancement de l'application, une liste de présence se créé dans le localStorage
+- À l'ajout d'un absent, une liste d'absence se créé dans le localStorage
 
 ## Angular
 
